@@ -1,0 +1,74 @@
+2026-04-21 07:56:18,646 INFO: 
+                ____                _       _____  ____
+               / __ ) ____ _ _____ (_)_____/ ___/ / __ \
+              / __  |/ __ `// ___// // ___/\__ \ / /_/ /
+             / /_/ // /_/ /(__  )/ // /__ ___/ // _, _/
+            /_____/ \__,_//____//_/ \___//____//_/ |_|
+     ______                   __   __                 __      __
+    / ____/____   ____   ____/ /  / /   __  __ _____ / /__   / /
+   / / __ / __ \ / __ \ / __  /  / /   / / / // ___// //_/  / /
+  / /_/ // /_/ // /_/ // /_/ /  / /___/ /_/ // /__ / /<    /_/
+  \____/ \____/ \____/ \____/  /_____/\____/ \___//_/|_|  (_)
+    
+Version Information: 
+	BasicSR: 1.3.3.10
+	PyTorch: 2.5.1+cu121
+	TorchVision: 0.20.1+cu121
+2026-04-21 07:56:18,646 INFO: 
+  name: test_small4_flip
+  model_type: SRModel
+  scale: 1
+  num_gpu: 1
+  manual_seed: 0
+  datasets:[
+    test_1:[
+      name: flip
+      type: SingleImageDataset
+      dataroot_img: /home/work/DDS_SR2/datasets/flip_test/flip
+      mode: test
+      io_backend:[
+        type: disk
+      ]
+      phase: test
+      scale: 1
+    ]
+  ]
+  network_g:[
+    type: MDM4
+    islora: True
+    rank: 16
+    sdturbo: True
+    dmd: False
+    large_gan: 1.0
+    fakevlm: 0.0
+    iter_num: 1
+    noise_weight: 1.0
+    controlnet: True
+    decoder: False
+    onlydecoder: False
+  ]
+  path:[
+    pretrain_network_g: /home/work/project/DDS_SR2/experiments/pretrained/lora16_best.pth
+    param_key_g: params
+    strict_load_g: True
+    resume_state: None
+    results_root: /home/work/DDS_SR2/results/test_small4_flip
+    log: /home/work/DDS_SR2/results/test_small4_flip
+    visualization: /home/work/DDS_SR2/results/test_small4_flip/visualization
+  ]
+  val:[
+    save_img: True
+    suffix: None
+  ]
+  is_train: False
+  auto_resume: False
+  dist: False
+  rank: 0
+  world_size: 1
+
+2026-04-21 07:56:18,649 INFO: Dataset [SingleImageDataset] - flip is built.
+2026-04-21 07:56:18,650 INFO: Number of test images in flip: 4
+2026-04-21 07:57:26,453 INFO: Network [MDM4] is created.
+2026-04-21 07:57:40,947 INFO: Loading MDM4 model from /home/work/project/DDS_SR2/experiments/pretrained/lora16_best.pth.
+2026-04-21 07:57:57,167 INFO: Model [SRModel] is created.
+2026-04-21 07:57:57,168 INFO: Testing flip...
